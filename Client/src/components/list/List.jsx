@@ -1,0 +1,15 @@
+import './list.scss'
+import Card from"../card/Card"
+
+function List({posts}){
+  return (
+    <div className='list'>
+      {
+     posts?.filter(item => item != null)
+  .map(item => <Card key={item._id} item={item} />)
+      }
+    </div>
+  )
+}
+
+export default List
