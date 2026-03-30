@@ -1,10 +1,12 @@
 @import "../../responsive.scss";
 
-nav {
+nav { 
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+   
 
   a {
     transition: all 0.4s ease;
@@ -50,7 +52,8 @@ nav {
     flex: 2;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    gap: 10px;
     background-color: #fcf5f3;
     height: 100%;
 
@@ -62,6 +65,12 @@ nav {
     //   padding: 12px 24px;
     //   margin: 20px;
     // }
+
+    .signin{
+      display: flex;
+      gap: 20px;
+      font-size:medium;
+    }
 
     .user{
       display: flex;
@@ -110,20 +119,20 @@ nav {
       background-color: #fece51;
     }
 
-    .menuIcon {
-      // display: none;
-      z-index: 999;
+    // .menuIcon {
+    //   display: none;
+    //   z-index: 999;
 
-      img {
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-      }
+    //   img {
+    //     width: 36px;
+    //     height: 36px;
+    //     cursor: pointer;
+    //   }
 
-      @include sm {
-        display: inline;
-      }
-    }
+    //   @include sm {
+    //     display: inline;
+    //   }
+    // }
 
     .menu {
       position: absolute;
@@ -150,5 +159,11 @@ nav {
         }
       }
     }
+  }
+
+  .mobileMenu {
+    margin-top: 280px;
+    background-color: aquamarine;
+     backdrop-filter: blur(2px);
   }
 }

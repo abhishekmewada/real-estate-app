@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   // createdAt:{ type: Date, default: Date.now },
   avatar:   { type: String },
   isAdmin:  { type: Boolean, default: false }   ,
+  // it is means that one user can have many posts, and the posts are referenced by their ObjectId
     posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -16,6 +17,7 @@ const userSchema = new mongoose.Schema({
       
     }
   ],
+  // it is means that one user can have many saved posts, and the saved posts are referenced by their ObjectId
     savedPosts: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -24,6 +26,8 @@ const userSchema = new mongoose.Schema({
     ]
 }, { timestamps: true });
 
+
+// it is a model which is used to create a collection in the database, and it is used to perform CRUD operations on the collection
 const User = mongoose.model("User", userSchema);
 
 export default User;

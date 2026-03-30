@@ -34,7 +34,7 @@ export const getPosts = async (req, res) =>{
     // ✅ Agar token hai tab verify karo
     if (token) {
       try {
-        const payload = jwt.verify(token, process.env.JWT_SECRET);
+        const payload = jwt.verify(token, process.env.JWT_SECRET); 
         userId = payload.id;
       } catch (err) {
         userId = null;
@@ -45,7 +45,7 @@ export const getPosts = async (req, res) =>{
 
     // ✅ Tabhi check karo jab userId ho
     if (userId) {
-      saved = await SavePost.findOne({ userId, postId });
+      saved = await SavePost.findOne({ user: req.userId, post: postId });
     }
 
     res.status(200).json({

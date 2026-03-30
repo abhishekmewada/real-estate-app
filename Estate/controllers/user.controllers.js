@@ -83,7 +83,7 @@ if (!deletedUser) {
 
     res.status(200).json({
       message: "User has been deleted!",
-      user: updatedUser,
+      user: deletedUser,
     });
 
   }
@@ -97,8 +97,8 @@ if (!deletedUser) {
 export const savePost = async (req, res) =>{
    const postId = req.body.postId;
    const tokenUserId = req.userId;
+    
   try {
-     
     // check if already save
     const savedPost = await SavePost.findOne({
       user: tokenUserId,
@@ -116,14 +116,9 @@ export const savePost = async (req, res) =>{
         user: tokenUserId,
         post: postId,
       });
-
-      console.log("REQ BODY:-----------", req.body);
-console.log("postId:-------------", req.body.postId);
-console.log("userId:-------------", req.userId);
-      
-      return res.status(200).json({
-        savePost: postId, message: "Post saved successfully"
-      })
+       return res.status(200).json({
+        savedPost: postId, message: "Post saved successfully"
+      }) 
     }
   }
    catch (err) {
